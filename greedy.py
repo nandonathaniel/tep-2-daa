@@ -19,20 +19,20 @@ def set_cover(universe, subsets,costs):
  
     return cover, cost
 
-# from memory_profiler import memory_usage
+from memory_profiler import memory_usage
 
-# def profile_memory(func):
-#     def wrapper(*args, **kwargs):
+def profile_memory(func):
+    def wrapper(*args, **kwargs):
 
-#         def target():
-#             return func(*args, **kwargs)
+        def target():
+            return func(*args, **kwargs)
         
-#         mem_usage, retval = memory_usage(target, interval=.1, timeout=1, retval=True, max_usage=True)
-#         print(f">{func.__name__}'s memory usage: {mem_usage} MiB.")
-#         return retval
-#     return wrapper
+        mem_usage, retval = memory_usage(target, interval=.1, timeout=1, retval=True, max_usage=True)
+        print(f">{func.__name__}'s memory usage: {mem_usage} MiB.")
+        return retval
+    return wrapper
 
-# @profile_memory
+@profile_memory
 def main(a,b,c,x=time.time()):
     m= a
     universe = set(range(1, m+1))
